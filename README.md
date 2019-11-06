@@ -3,7 +3,7 @@
 Personal cloud server using Nextcloud services and a Raspberry Pi 3 B+.
 
 ## Installation
-<In Progress>
+*In Progress*
 
 ## To-Do
 - [ ] Installation guide
