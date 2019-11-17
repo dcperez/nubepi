@@ -60,7 +60,7 @@ Tip:  Use your Raspberry Pi's ID address. It can be accessed using `ifconfig`.
 `sudo cp -p config.php config.php.bk`
 
 5. Open config.php file using text editor. With nano or vim, you can use the following commands: 
-`sudo nano config.php` or  `vim config.php`
+`sudo nano config.php` or  `sudo vim config.php`
 
 6. Change the following line
 `'datadirectory' => '/var/www/html/nextcloud/data'`
@@ -95,7 +95,7 @@ upload_max_filesize = 1024M
 This configuration file affects how Apache will respond to various requests.
 
 1. Open the following file using your text editor
-`sudo nano /etc/apache2/apache2.conf` or `vim /etc/apache2/apache2.conf`
+`sudo nano /etc/apache2/apache2.conf` or `sudo vim /etc/apache2/apache2.conf`
 
 2. Change the following block
 ```
