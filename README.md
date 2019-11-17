@@ -73,7 +73,7 @@ to
 By default, the upload limit is 2MB. The following will increase the limit to 1 GB.
 
 1. Open the following configuration file with your text editor
-`sudo nano /etc/php/7.3/apache2/php.ini` or `vim /etc/php/7.3/apache2/php.ini`
+`sudo nano /etc/php/7.3/apache2/php.ini` or `sudo vim /etc/php/7.3/apache2/php.ini`
 
 2. Replace the following two lines
 ```
