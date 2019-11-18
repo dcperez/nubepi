@@ -31,6 +31,7 @@ sudo apt-get upgrade
 `cd /var/www/html`
 
 2. Download and extract latest version of Nextcloud
+
 `curl https://download.nextcloud.com/server/releases/nextcloud-16.0.3.tar.bz2 | sudo tar -jxv`
 
 3. Create data directory
