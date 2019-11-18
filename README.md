@@ -79,7 +79,7 @@ Tip:  Use your Raspberry Pi's ID address. It can be accessed using `ifconfig`.
 
 `'datadirectory' => '/var/www/html/nextcloud/data'`
 
-to 
+to
 
 `'datadirectory' => '/var/nextcloud/data',`
 
@@ -99,7 +99,7 @@ post_max_size = 8M
 upload_max_filesize = 2M
 ```
 
-to 
+to
 
 ```
 post_max_size = 1024M
@@ -122,17 +122,17 @@ This configuration file affects how Apache will respond to various requests.
 2. Change the following block
 
 ```
-<Directory /var/www/>        
+<Directory /var/www/>
         Options Indexes FollowSymLinks
         AllowOverride None
         Require all granted
 </Directory>
 ```
 
-to 
+to
 
 ```
-<Directory /var/www/>        
+<Directory /var/www/>
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
@@ -148,7 +148,7 @@ to
 ### Setting up SSL for Nextcloud
 Set up to run sever through HTTPS
 
-1. Create directory to store ssl 
+1. Create directory to store ssl
 
 `sudo mkdir -p /etc/apache2/ssl`
 
@@ -200,7 +200,7 @@ SSLCertificateKeyFile /etc/apache2/ssl/apache.key
 
 `sudo service apache2 restart`
 
-10. Test Raspberry Pi's IP address with **https://** 
+10. Test Raspberry Pi's IP address with **https://**
 
 `https://*IP Address*/nextcloud`
 
@@ -233,7 +233,7 @@ sudo service apache2 restart
 
 ### Port Forwarding
 
-1. Open Nextcloud confirguration file using your text editor
+1. Open Nextcloud configuration file using your text editor
 
 `sudo nano /var/www/html/nextcloud/config/config.php` or `sudo vim /var/www/html/nextcloud/config/config.php`
 
@@ -246,7 +246,7 @@ array (
 ),
 ```
 
-3. Exit text edior
+3. Exit text editor
 
 4. Set up port forwarding on router with TCP (Port 80 and Port 443)
 
