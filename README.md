@@ -147,12 +147,113 @@ to
 `sudo service apache2 restart`
 
 ### Setting up SSL for Nextcloud
-*In Progress*
+Set up to run sever through HTTPS
+
+1. Create directory to store ssl 
+
+`sudo mkdir -p /etc/apache2/ssl`
+
+2. Generate certificate
+
+`sudo openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout /etc/apache2/ssl/apache.key -out /etc/apache2/ssl/apache.crt`
+
+3. Fill out the following options
+
+```
+Country Name (2 letter code) [AU]:
+State or Province Name (full name) [Some-State]:
+Locality Name (eg, city) []:
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+Organizational Unit Name (eg, section) []:
+Common Name (e.g. server FQDN or YOUR name) []:
+Email Address []:
+```
+
+4. Enable SSL module for Apache
+
+`sudo a2enmod ssl`
+
+5. Open *default-ssl* file to utilize new certificate within your text editor
+
+`sudo nano /etc/apache2/sites-available/default-ssl.conf` or `sudo vim /etc/apache2/sites-available/default-ssl.conf`
+
+6. Modify the following lines:
+
+```
+SSLCertificateFile /etc/ssl/certs/ssl-cert-snakeoil.pem
+SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
+```
+
+to
+
+```
+SSLCertificateFile /etc/apache2/ssl/apache.crt
+SSLCertificateKeyFile /etc/apache2/ssl/apache.key
+```
+
+7. Exit text editor
+
+8. Enable default-ssl configuration
+
+`sudo a2ensite default-ssl.conf`
+
+9. Restart Apache server
+
+`sudo service apache2 restart`
+
+10. Test Raspberry Pi's IP address with **https://** 
+
+`https://*IP Address*/nextcloud`
+
+**If you want to direct all traffic to HTTPS**
+
+11. Open default Apache configuration file with your text editor
+
+`sudo nano /etc/apache2/sites-available/000-default.conf` or `sudo vim /etc/apache2/sites-available/000-default.conf`
+
+12. Replace all the text with the following code block below:
+
+```
+<VirtualHost *:80>
+   ServerAdmin example@example
+
+   RewriteEngine On
+   RewriteCond %{HTTPS} off
+   RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [R=301,L]
+</VirtualHost>
+```
+
+13. Exit text editor
+
+14. Redirect module and restart Apache
+
+```
+sudo a2enmod rewrite
+sudo service apache2 restart
+```
 
 ### Port Forwarding
-*In Progress*
+
+1. Open Nextcloud confirguration file using your text editor
+
+`sudo nano /var/www/html/nextcloud/config/config.php` or `sudo vim /var/www/html/nextcloud/config/config.php`
+
+2. Add Raspberry Pi's IP address to the following array
+
+```
+'trusted_domains' =>
+array (
+    0 => '192.168.1.105',
+),
+```
+
+3. Exit text edior
+
+4. Set up port forwarding on router with TCP (Port 80 and Port 443)
+
+
+## Enjoy!
 
 ## To-Do
-- [ ] Finish installation guide
 - [ ] Set-up DNS for external network access
 - [ ] SD Mac Mount for periodic back-ups
