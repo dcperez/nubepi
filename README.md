@@ -71,9 +71,14 @@ Tip:  Use your Raspberry Pi's ID address. It can be accessed using `ifconfig`.
 
 `sudo cp -p config.php config.php.bk`
 
+<<<<<<< HEAD
 5. Open config.php file using text editor. With nano or vim, you can use the following commands:
 
 `sudo nano config.php` or  `vim config.php`
+=======
+5. Open config.php file using text editor. With nano or vim, you can use the following commands: 
+`sudo nano config.php` or  `sudo vim config.php`
+>>>>>>> 50f5357d04db6b7fbd76c8f40a13ae0e508d038c
 
 6. Change the following line
 
@@ -89,8 +94,12 @@ to
 By default, the upload limit is 2MB. The following will increase the limit to 1 GB.
 
 1. Open the following configuration file with your text editor
+<<<<<<< HEAD
 
 `sudo nano /etc/php/7.3/apache2/php.ini` or `vim /etc/php/7.3/apache2/php.ini`
+=======
+`sudo nano /etc/php/7.3/apache2/php.ini` or `sudo vim /etc/php/7.3/apache2/php.ini`
+>>>>>>> 50f5357d04db6b7fbd76c8f40a13ae0e508d038c
 
 2. Replace the following two lines
 
@@ -116,8 +125,12 @@ upload_max_filesize = 1024M
 This configuration file affects how Apache will respond to various requests.
 
 1. Open the following file using your text editor
+<<<<<<< HEAD
 
 `sudo nano /etc/apache2/apache2.conf` or `vim /etc/apache2/apache2.conf`
+=======
+`sudo nano /etc/apache2/apache2.conf` or `sudo vim /etc/apache2/apache2.conf`
+>>>>>>> 50f5357d04db6b7fbd76c8f40a13ae0e508d038c
 
 2. Change the following block
 
