@@ -3,7 +3,6 @@
 <p align="center"><i>Personal cloud server using Nextcloud services and a Raspberry Pi 3 B+.</i></p>
 
 ## Installation
-*In Progress*
 
 ### Installing Apache and PHP
 
@@ -252,7 +251,7 @@ array (
 4. Set up port forwarding on router with TCP (Port 80 and Port 443)
 
 
-## Enjoy!
+### Enjoy!
 
 ## To-Do
 - [ ] Set-up DNS for external network access
